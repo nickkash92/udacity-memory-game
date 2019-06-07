@@ -36,6 +36,28 @@ for (let i=0; i < cards.length; i++) {
   card.classList.add("card");
   card.innerHTML = "<i class='"+ cards[i] + "'</i>";
   cardDeck.appendChild(card);
+  
+    //CLICKING A CARD TO FLIP IT//
+
+  card.addEventListener('click',function(){
+    if (openedCards === 1) {
+      card.classList.add("open","show");
+      openedCards.push(this);
+
+      //COMPARE 2 OPENED CARDS//
+
+      if (this.innerHTML === openedCards[0].innerHTML){
+        console.log("matched");
+      } else {
+        console.log("doesn't match");
+      }
+
+    } else {
+      card.classList.add("open","show");
+      openedCards.push(this);
+    }
+
+  });
 }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
