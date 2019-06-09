@@ -21,6 +21,16 @@ const cards = [
   "fa fa-bomb",
 ]
 
+/*
+*GLOBAL VARIABLES
+*/
+
+const cardDeck = document.querySelector('.deck');
+
+
+//CARDS ARRAYS//
+
+let openedCards = [];
 
 /*
  * Display the cards on the page
