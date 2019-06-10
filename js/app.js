@@ -50,7 +50,7 @@ for (let i=0; i < cards.length; i++) {
     //CLICKING A CARD TO FLIP IT//
 
   card.addEventListener('click',function(){
-    if (openedCards === 1) {
+    if (openedCards.length === 1) {
       card.classList.add("open","show");
       openedCards.push(this);
 
