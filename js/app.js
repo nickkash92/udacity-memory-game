@@ -58,17 +58,20 @@ card.addEventListener('click',function(){
       card.classList.add("open","show");
       openedCards.push(this);
 
-      //COMPARE 2 OPENED CARDS & SWITCH CLASS WHEN MATCHED//
+   //COMPARE 2 OPENED CARDS & SWITCH CLASS WHEN MATCHED//
 
       if (secondCard.innerHTML === firstCard.innerHTML){
-        
+
         firstCard.classList.add("match");
         secondCard.classList.add("match");
 
-          openedCards=[];
-        
+        openedCards=[];
+
       } else {
-        console.log("doesn't match");
+        firstCard.classList.remove("open","show");
+        secondCard.classList.remove("open","show");
+
+        openedCards=[];
       }
 
     } else {
