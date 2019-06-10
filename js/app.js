@@ -61,9 +61,12 @@ card.addEventListener('click',function(){
       //COMPARE 2 OPENED CARDS & SWITCH CLASS WHEN MATCHED//
 
       if (secondCard.innerHTML === firstCard.innerHTML){
+        
         firstCard.classList.add("match");
         secondCard.classList.add("match");
 
+          openedCards=[];
+        
       } else {
         console.log("doesn't match");
       }
