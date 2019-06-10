@@ -49,15 +49,21 @@ for (let i=0; i < cards.length; i++) {
   
     //CLICKING A CARD TO FLIP IT//
 
-  card.addEventListener('click',function(){
+card.addEventListener('click',function(){
     if (openedCards.length === 1) {
+
+      const secondCard = this;
+      const firstCard = openedCards[0];
+
       card.classList.add("open","show");
       openedCards.push(this);
 
-      //COMPARE 2 OPENED CARDS//
+      //COMPARE 2 OPENED CARDS & SWITCH CLASS WHEN MATCHED//
 
-      if (this.innerHTML === openedCards[0].innerHTML){
-        console.log("matched");
+      if (secondCard.innerHTML === firstCard.innerHTML){
+        firstCard.classList.add("match");
+        secondCard.classList.add("match");
+
       } else {
         console.log("doesn't match");
       }
