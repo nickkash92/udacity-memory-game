@@ -31,6 +31,7 @@ const cardDeck = document.querySelector('.deck');
 //CARDS ARRAYS//
 
 let openedCards = [];
+let matchedCards = [];
 
 /*
  * Display the cards on the page
@@ -42,14 +43,16 @@ let openedCards = [];
 //CREATE THE GAMEBOARD//
 
 for (let i=0; i < cards.length; i++) {
+
   const card = document.createElement("li");
+
   card.classList.add("card");
   card.innerHTML = "<i class='"+ cards[i] + "'</i>";
   cardDeck.appendChild(card);
-  
+
     //CLICKING A CARD TO FLIP IT//
 
-card.addEventListener('click',function(){
+  card.addEventListener('click',function(){
     if (openedCards.length === 1) {
 
       const secondCard = this;
@@ -58,12 +61,14 @@ card.addEventListener('click',function(){
       card.classList.add("open","show");
       openedCards.push(this);
 
-   //COMPARE 2 OPENED CARDS & SWITCH CLASS WHEN MATCHED//
+      //COMPARE 2 OPENED CARDS & SWITCH CLASS WHEN MATCHED//
 
       if (secondCard.innerHTML === firstCard.innerHTML){
 
         firstCard.classList.add("match");
         secondCard.classList.add("match");
+
+        matchedCards.push(firstCard,secondCard);
 
         openedCards=[];
 
@@ -81,6 +86,12 @@ card.addEventListener('click',function(){
 
   });
 }
+
+//ENDING THE GAME//
+
+
+
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(cards) {
