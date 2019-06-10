@@ -72,6 +72,9 @@ for (let i=0; i < cards.length; i++) {
 
         openedCards=[];
 
+        //CHECK IF GAME IS OVER//
+        gameOver();
+
       } else {
         firstCard.classList.remove("open","show");
         secondCard.classList.remove("open","show");
@@ -87,10 +90,13 @@ for (let i=0; i < cards.length; i++) {
   });
 }
 
-//ENDING THE GAME//
+//GAME OVER//
 
-
-
+function gameOver(){
+  if (matchedCards.length === 16){
+    alert("GAME OVER");
+  }
+}
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
