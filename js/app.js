@@ -76,8 +76,13 @@ for (let i=0; i < cards.length; i++) {
         gameOver();
 
       } else {
-        firstCard.classList.remove("open","show");
-        secondCard.classList.remove("open","show");
+
+       //setTimeout used for delay until function is used//
+        setTimeout(function(){
+          firstCard.classList.remove("open","show");
+          secondCard.classList.remove("open","show");
+        },500);
+
 
         openedCards=[];
       }
@@ -97,6 +102,8 @@ function gameOver(){
     alert("GAME OVER");
   }
 }
+
+//EVENT LISTENER TO REFRESH PAGE//
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
