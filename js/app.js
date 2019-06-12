@@ -104,7 +104,7 @@ function gameOver(){
 }
 
 //EVENT LISTENER TO REFRESH PAGE//
-
+const refresh = doucment.querySelector(".restart");
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(cards) {
