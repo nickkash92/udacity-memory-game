@@ -111,7 +111,8 @@ const refresh = doucment.querySelector(".restart");
 
 refresh.addEventListener("click",function(){
   cardDeck.innerHTML = "";
-
+  createBoard();
+  matchedCards = [];
 })
 
 // Shuffle function from http://stackoverflow.com/a/2450976
