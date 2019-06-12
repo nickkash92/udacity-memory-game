@@ -118,8 +118,26 @@ let moves = 0;
 function addMove(){
   moves++;
   movesCounter.innerHTML = moves;
+
+  rating();
 }
 
+//STAR RATING//
+
+const starRating = doucment.querySelector(".stars");
+
+function rating(){
+  if (moves < 12 ) {
+    starRating.innerHTML = <li><i class="fa fa-star"></i></li>
+    <li><i class="fa fa-star"></i></li>
+    <li><i class="fa fa-star"></i></li>;
+  } if else (moves > 12 && moves < 18) {
+    <li><i class="fa fa-star"></i></li>
+    <li><i class="fa fa-star"></i></li>;
+  } else (moves > 18){
+    <li><i class="fa fa-star"></i></li>;
+  }
+}
 
 //EVENT LISTENER TO REFRESH PAGE//
 
