@@ -42,7 +42,7 @@ let matchedCards = [];
 
 //CREATE THE GAMEBOARD//
 
-
+function createBoard() {
   for (let i=0; i < cards.length; i++) {
 
     const card = document.createElement("li");
@@ -50,7 +50,7 @@ let matchedCards = [];
     card.classList.add("card");
     card.innerHTML = "<i class='"+ cards[i] + "'</i>";
     cardDeck.appendChild(card);
-
+}
 
 
     //CLICKING A CARD TO FLIP IT//
