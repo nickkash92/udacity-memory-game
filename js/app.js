@@ -131,7 +131,7 @@ function rating(){
     starRating.innerHTML = <li><i class="fa fa-star"></i></li>
     <li><i class="fa fa-star"></i></li>
     <li><i class="fa fa-star"></i></li>;
-  } if else (moves > 12 && moves < 18) {
+  } else if (moves > 12) {
     starRating.innerHTML = <li><i class="fa fa-star"></i></li>
     <li><i class="fa fa-star"></i></li>;
   } else (moves > 18){
