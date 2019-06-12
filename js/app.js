@@ -128,14 +128,11 @@ const starRating = doucment.querySelector(".stars");
 
 function rating(){
   if (moves < 12 ) {
-    starRating.innerHTML = <li><i class="fa fa-star"></i></li>
-    <li><i class="fa fa-star"></i></li>
-    <li><i class="fa fa-star"></i></li>;
+    starRating.innerHTML = star + star + star;
   } else if (moves > 12) {
-    starRating.innerHTML = <li><i class="fa fa-star"></i></li>
-    <li><i class="fa fa-star"></i></li>;
+    starRating.innerHTML = star + star;
   } else (moves > 18){
-    starRating.innerHTML = <li><i class="fa fa-star"></i></li>;
+    starRating.innerHTML = star; 
   }
 }
 
