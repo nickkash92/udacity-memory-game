@@ -112,9 +112,12 @@ function gameOver(){
 }
 
 //COUNTS MOVES DURING THE GAME//
+
+const movesCounter = document.querySelector(".moves");
 let moves = 0;
 function addMove(){
   moves++;
+  movesCounter.innerHTML = moves;
 }
 
 
