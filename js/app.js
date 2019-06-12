@@ -96,6 +96,11 @@ function createBoard(){
     }
 
   });
+
+  //ADD NEW MOVE//
+
+addMove();
+
 }
 
 //GAME OVER//
@@ -106,7 +111,15 @@ function gameOver(){
   }
 }
 
+//COUNTS MOVES DURING THE GAME//
+let moves = 0;
+function addMove(){
+  moves++;
+}
+
+
 //EVENT LISTENER TO REFRESH PAGE//
+
 const refresh = doucment.querySelector(".restart");
 
 refresh.addEventListener("click",function(){
