@@ -42,13 +42,16 @@ let matchedCards = [];
 
 //CREATE THE GAMEBOARD//
 
-for (let i=0; i < cards.length; i++) {
+function createBoard(){
+  for (let i=0; i < cards.length; i++) {
 
-  const card = document.createElement("li");
+    const card = document.createElement("li");
 
-  card.classList.add("card");
-  card.innerHTML = "<i class='"+ cards[i] + "'</i>";
-  cardDeck.appendChild(card);
+    card.classList.add("card");
+    card.innerHTML = "<i class='"+ cards[i] + "'</i>";
+    cardDeck.appendChild(card);
+}
+
 
     //CLICKING A CARD TO FLIP IT//
 
@@ -105,6 +108,11 @@ function gameOver(){
 
 //EVENT LISTENER TO REFRESH PAGE//
 const refresh = doucment.querySelector(".restart");
+
+refresh.addEventListener("click",function(){
+  cardDeck.innerHTML = "";
+
+})
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(cards) {
