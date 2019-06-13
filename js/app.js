@@ -124,7 +124,7 @@ function addMove(){
 
 //STAR RATING//
 
-const starRating = doucment.querySelector(".stars");
+const starRating = document.querySelector(".stars");
 
 function rating(){
   if (moves < 12 ) {
@@ -138,7 +138,7 @@ function rating(){
 
 //EVENT LISTENER TO REFRESH PAGE//
 
-const refresh = doucment.querySelector(".restart");
+const refresh = document.querySelector(".restart");
 
 refresh.addEventListener("click",function(){
   cardDeck.innerHTML = "";
