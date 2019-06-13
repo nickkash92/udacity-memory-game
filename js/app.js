@@ -116,6 +116,11 @@ function addMove() {
 //STAR RATING//
 
 const starRating = document.querySelector(".stars");
+const star = (
+  <li>
+    <i class="fa fa-star" />
+  </li>
+);
 
 function rating() {
   if (moves <= 12) {
