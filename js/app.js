@@ -1,6 +1,4 @@
-/*
- * Create a list that holds all of your cards
- */
+//ARRAY THAT HOLDS ALL THE PLAYING CARDS//
 
 const cards = [
   "fa fa-anchor",
@@ -21,16 +19,17 @@ const cards = [
   "fa fa-paper-plane-o"
 ];
 
-/*
- *GLOBAL VARIABLES
- */
 
 const cardDeck = document.querySelector(".deck");
+let isFirstClick = true;
 
-//CARDS ARRAYS//
+//CARDS ARRAYS WHERE CARDS GET PUSHED TO//
 
 let openedCards = [];
 let matchedCards = [];
+
+
+//CREATE THE GAMEBOARD//
 
 /*
  * Display the cards on the page
@@ -39,9 +38,7 @@ let matchedCards = [];
  *   - add each card's HTML to the page
  */
 
-//CREATE THE GAMEBOARD//
-
-// shuffle(cards);
+shuffle(cards);
 
 for (let i = 0; i < cards.length; i++) {
   const card = document.createElement("li");
@@ -51,8 +48,19 @@ for (let i = 0; i < cards.length; i++) {
   cardDeck.appendChild(card);
 
   //CLICKING A CARD TO FLIP IT//
+  /*
+   * Listening for a card click
+   * Starting timer and move counter
+   */
 
   card.addEventListener("click", function() {
+
+    if(isFirstClick) {
+      startTimer();
+      isFirstClick = false;
+    }
+
+
     if (openedCards.length === 1) {
       const secondCard = this;
       const firstCard = openedCards[0];
@@ -73,8 +81,10 @@ for (let i = 0; i < cards.length; i++) {
         addMove();
 
         //CHECK IF GAME IS OVER//
+
         gameOver();
       } else {
+
         //setTimeout used for delay until function is used//
         setTimeout(function() {
           firstCard.classList.remove("open", "show");
@@ -91,14 +101,14 @@ for (let i = 0; i < cards.length; i++) {
     }
   });
 
-  //ADD NEW MOVE//
 }
 
 //GAME OVER//
 
 function gameOver() {
   if (matchedCards.length === 16) {
-    alert("GAME OVER");
+    stopTimer()
+    alert('Game over, congrats!'+ '\n Time to Complete:\n'+totalSeconds+'seconds'+'\n Moves Taken:\n'+moves+'\n Your Star Rating is:\n'+starCount);
   }
 }
 
@@ -121,11 +131,34 @@ const star = `<li><i class="fa fa-star"></i></li>`;
 function rating() {
   if (moves <= 12) {
     starRating.innerHTML = star + star + star;
+    starCount = 3;
   } else if (moves > 12 && moves <= 18) {
     starRating.innerHTML = star + star;
+    starCount = 2;
   } else {
     starRating.innerHTML = star;
+    starCount = 1;
   }
+}
+
+//CREATE TIMER//
+
+const timerContainer = document.querySelector(".timer");
+
+let liveTimer,
+  totalSeconds = 0;
+
+timerContainer.innerHTML = totalSeconds;
+
+function startTimer (){
+  liveTimer = setInterval (function(){
+    totalSeconds ++;
+    timerContainer.innerHTML = totalSeconds;
+  },1000);
+}
+
+function stopTimer() {
+  clearInterval(liveTimer);
 }
 
 //EVENT LISTENER TO REFRESH PAGE//
