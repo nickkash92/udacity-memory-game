@@ -3,30 +3,29 @@
  */
 
 const cards = [
-  "fa fa-diamond",
-  "fa fa-paper-plane-o",
   "fa fa-anchor",
-  "fa fa-bolt",
-  "fa fa-cube",
-  "fa fa-leaf",
-  "fa fa-bicycle",
-  "fa fa-bomb",
-  "fa fa-diamond",
-  "fa fa-paper-plane-o",
   "fa fa-anchor",
-  "fa fa-bolt",
-  "fa fa-cube",
-  "fa fa-leaf",
   "fa fa-bicycle",
+  "fa fa-bicycle",
+  "fa fa-bolt",
+  "fa fa-bolt",
   "fa fa-bomb",
-]
+  "fa fa-bomb",
+  "fa fa-cube",
+  "fa fa-cube",
+  "fa fa-diamond",
+  "fa fa-diamond",
+  "fa fa-leaf",
+  "fa fa-leaf",
+  "fa fa-paper-plane-o",
+  "fa fa-paper-plane-o"
+];
 
 /*
-*GLOBAL VARIABLES
-*/
+ *GLOBAL VARIABLES
+ */
 
-const cardDeck = document.querySelector('.deck');
-
+const cardDeck = document.querySelector(".deck");
 
 //CARDS ARRAYS//
 
@@ -42,71 +41,63 @@ let matchedCards = [];
 
 //CREATE THE GAMEBOARD//
 
-function createBoard(){
-  for (let i=0; i < cards.length; i++) {
+// shuffle(cards);
 
-    const card = document.createElement("li");
+for (let i = 0; i < cards.length; i++) {
+  const card = document.createElement("li");
 
-    card.classList.add("card");
-    card.innerHTML = "<i class='"+ cards[i] + "'</i>";
-    cardDeck.appendChild(card);
-}
+  card.classList.add("card");
+  card.innerHTML = "<i class='" + cards[i] + "'</i>";
+  cardDeck.appendChild(card);
 
+  //CLICKING A CARD TO FLIP IT//
 
-    //CLICKING A CARD TO FLIP IT//
-
-  card.addEventListener('click',function(){
+  card.addEventListener("click", function() {
     if (openedCards.length === 1) {
-
       const secondCard = this;
       const firstCard = openedCards[0];
 
-      card.classList.add("open","show");
+      card.classList.add("open", "show");
       openedCards.push(this);
 
       //COMPARE 2 OPENED CARDS & SWITCH CLASS WHEN MATCHED//
 
-      if (secondCard.innerHTML === firstCard.innerHTML){
-
+      if (secondCard.innerHTML === firstCard.innerHTML) {
         firstCard.classList.add("match");
         secondCard.classList.add("match");
 
-        matchedCards.push(firstCard,secondCard);
+        matchedCards.push(firstCard, secondCard);
 
-        openedCards=[];
+        openedCards = [];
+
+        addMove();
 
         //CHECK IF GAME IS OVER//
         gameOver();
-
       } else {
+        //setTimeout used for delay until function is used//
+        setTimeout(function() {
+          firstCard.classList.remove("open", "show");
+          secondCard.classList.remove("open", "show");
 
-       //setTimeout used for delay until function is used//
-        setTimeout(function(){
-          firstCard.classList.remove("open","show");
-          secondCard.classList.remove("open","show");
-        },500);
+          addMove();
+        }, 500);
 
-
-        openedCards=[];
+        openedCards = [];
       }
-
     } else {
-      card.classList.add("open","show");
+      card.classList.add("open", "show");
       openedCards.push(this);
     }
-
   });
 
   //ADD NEW MOVE//
-
-addMove();
-
 }
 
 //GAME OVER//
 
-function gameOver(){
-  if (matchedCards.length === 16){
+function gameOver() {
+  if (matchedCards.length === 16) {
     alert("GAME OVER");
   }
 }
@@ -115,37 +106,56 @@ function gameOver(){
 
 const movesCounter = document.querySelector(".moves");
 let moves = 0;
-function addMove(){
+function addMove() {
   moves++;
   movesCounter.innerHTML = moves;
+
+  rating();
 }
 
+//STAR RATING//
+
+const starRating = document.querySelector(".stars");
+const star = (
+  <li>
+    <i class="fa fa-star" />
+  </li>
+);
+
+function rating() {
+  if (moves <= 12) {
+    starRating.innerHTML = star + star + star;
+  } else if (moves > 12 && moves <= 18) {
+    starRating.innerHTML = star + star;
+  } else {
+    starRating.innerHTML = star;
+  }
+}
 
 //EVENT LISTENER TO REFRESH PAGE//
 
-const refresh = doucment.querySelector(".restart");
+const refresh = document.querySelector(".restart");
 
-refresh.addEventListener("click",function(){
-  cardDeck.innerHTML = "";
-  createBoard();
-  matchedCards = [];
-})
+refresh.addEventListener("click", function() {
+  location.reload();
+});
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(cards) {
-    var currentIndex = cards.length, temporaryValue, randomIndex;
+  var currentIndex = cards.length,
+    temporaryValue,
+    randomIndex;
 
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = cards[currentIndex];
-        cards[currentIndex] = cards[randomIndex];
-        cards[randomIndex] = temporaryValue;
-    }
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = cards[currentIndex];
+    cards[currentIndex] = cards[randomIndex];
+    cards[randomIndex] = temporaryValue;
+  }
 
-    return cards;
+  return cards;
 }
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
