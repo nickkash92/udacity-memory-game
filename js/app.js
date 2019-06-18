@@ -108,7 +108,7 @@ for (let i = 0; i < cards.length; i++) {
 function gameOver() {
   if (matchedCards.length === 16) {
     stopTimer()
-    alert('Game over, congrats!'+ '\n Time to Complete:\n'+totalSeconds+'seconds'+'\n Moves Taken:\n'+moves+'\n Your Star Rating is:\n'+starCount);
+    window.confirm('Game over, congrats!'+ '\n Time to Complete:\n'+totalSeconds+'seconds'+'\n Moves Taken:\n'+moves+'\n Your Star Rating is:\n'+starCount);
   }
 }
 
