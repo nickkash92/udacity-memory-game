@@ -3,18 +3,31 @@
 ## Table of Contents
 
 * [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Technical](#technical)
+* [Resources] (#resources)
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+The gameboard consists of 16 different playing cards faced down. The games objective is to have all 16 cards facing up in the quickest time possible. The only way to achieve this is by finding matching cards (same icon when faced up). When matching cards are idenified, the cards will remain facing up. 
 
-To get started, open `js/app.js` and start building out the app's functionality
+Some other game details:
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+* The timer will start when you click the first card 
+* Your score is based on the number of moves it takes to complete the board 
+  - 3 stars (Complete in 12 moves or less)
+  - 2 stars (Complete in 20 moves or less)
+  - 1 star (Complete in more than 20 moves) 
 
-## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+## Technical 
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+This project consists of the following assets:
+
+index.html - contains the game's html structure.
+main.css - contains the game's board styling.
+app.js - contains all the board actions & logic.
+
+## Resources
+
+* Fontawesome was used to display game card's icons.
+* For shuffling the cards shuffle javaScript function was used from http://stackoverflow.com/a/2450976
