@@ -4,7 +4,7 @@
 
 * [Instructions](#instructions)
 * [Technical](#technical)
-* [Resources] (#resources)
+* [Resources](#resources)
 
 ## Instructions
 
@@ -14,6 +14,7 @@ Some other game details:
 
 * The timer will start when you click the first card 
 * Your score is based on the number of moves it takes to complete the board 
+
   - 3 stars (Complete in 12 moves or less)
   - 2 stars (Complete in 20 moves or less)
   - 1 star (Complete in more than 20 moves) 
@@ -23,9 +24,9 @@ Some other game details:
 
 This project consists of the following assets:
 
-index.html - contains the game's html structure.
-main.css - contains the game's board styling.
-app.js - contains all the board actions & logic.
+* index.html - contains the game's html structure.
+* main.css - contains the game's board styling.
+* app.js - contains all the board actions & logic.
 
 ## Resources
 
