@@ -104,12 +104,26 @@ for (let i = 0; i < cards.length; i++) {
 }
 
 //GAME OVER//
-
 function gameOver() {
   if (matchedCards.length === 16) {
-    stopTimer()
-    window.confirm('Game over, congrats!'+ '\n Time to Complete:\n'+totalSeconds+'seconds'+'\n Moves Taken:\n'+moves+'\n Your Star Rating is:\n'+starCount);
+    stopTimer();
+    window.confirm(
+      "Game over, congrats!" +
+        "\n Time to Complete:\n" +
+        totalSeconds +
+        "seconds" +
+        "\n Moves Taken:\n" +
+        moves +
+        "\n Your Star Rating is:\n" +
+        starCount
+    );
+    if (confirm("Are you sure?")) {
+      location.reload();
+    } else {
+      txt = "You pressed Cancel!";
+    }
   }
+}
 }
 
 //COUNTS MOVES DURING THE GAME//
