@@ -124,7 +124,7 @@ function gameOver() {
     }
   }
 }
-}
+
 
 //COUNTS MOVES DURING THE GAME//
 
